@@ -1,0 +1,27 @@
+@model IEnumerable<Ship>
+
+<h2>Ships in Harbor</h2>
+
+<a href="/Ship/Create" class="btn btn-primary">Add New Ship</a>
+
+<table class="table table-bordered">
+    <thead>
+    <tr><th>Name</th><th>Cargo</th><th>Weight</th><th>Arrival Date</th><th>Actions</th></tr>
+    </thead>
+    <tbody>
+    @foreach (var ship in Model)
+    {
+        <tr>
+            <td>@ship.Name</td>
+            <td>@ship.Cargo</td>
+            <td>@ship.Weight</td>
+            <td>@ship.ArrivalDate.ToShortDateString()</td>
+            <td>
+                <a href="/Ship/Edit/@ship.Id">Edit</a> |
+                <a href="/Ship/Delete/@ship.Id">Delete</a> |
+                <a href="/Ship/Manifest/@ship.Id">Manifest PDF</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

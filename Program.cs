@@ -1,3 +1,6 @@
+using GWWS60Beadando.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace GWWS60Beadando;
 
 public class Program
@@ -8,6 +11,10 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
+        // Program.cs (before builder.Build())
+        builder.Services.AddDbContext<DockyardContext>(options =>
+            options.UseSqlServer("Data Source=dockyard.db"));
+
 
         var app = builder.Build();
 
