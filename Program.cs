@@ -14,9 +14,7 @@ public class Program
         
         // Configure database with proper connection string for SQL Server LocalDB
         builder.Services.AddDbContext<DockyardContext>(options =>
-            options.UseSqlServer(
-                builder.Configuration.GetConnectionString("DefaultConnection")));
-
+            options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
