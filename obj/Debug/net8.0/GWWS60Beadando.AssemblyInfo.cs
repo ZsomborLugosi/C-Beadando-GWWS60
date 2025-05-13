@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GWWS60Beadando")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+564968e121a8be00a384af7da0651885869eea32")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+07f692805d085538ed3989e1ecaf255c3bf49194")]
 [assembly: System.Reflection.AssemblyProductAttribute("GWWS60Beadando")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GWWS60Beadando")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

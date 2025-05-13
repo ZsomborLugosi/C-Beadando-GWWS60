@@ -11,10 +11,11 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
-        // Program.cs (before builder.Build())
+        
+        // Configure database with proper connection string for SQL Server LocalDB
         builder.Services.AddDbContext<DockyardContext>(options =>
-            options.UseSqlServer("Data Source=dockyard.db"));
-
+            options.UseSqlServer(
+                builder.Configuration.GetConnectionString("DefaultConnection")));
 
         var app = builder.Build();
 
@@ -24,6 +25,17 @@ public class Program
             app.UseExceptionHandler("/Home/Error");
             // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
+        }
+
+        // Apply migrations and seed data at startup in development mode
+        if (app.Environment.IsDevelopment())
+        {
+            using (var scope = app.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                var context = services.GetRequiredService<DockyardContext>();
+                DbInitializer.Initialize(context);
+            }
         }
 
         app.UseHttpsRedirection();
