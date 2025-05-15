@@ -146,6 +146,8 @@ public class ShipController : Controller
         return File(stream.ToArray(), "application/pdf", $"Manifest_{ship.Name}_{DateTime.Now:yyyyMMdd}.pdf");
     }
     
+    //kiiratas
+    
     private void DrawInfoRow(XGraphics gfx, XFont font, string label, string value, double x, double y)
     {
         var labelFont = new XFont(font.Name, font.Size, XFontStyle.Bold);

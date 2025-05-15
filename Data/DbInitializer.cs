@@ -16,7 +16,7 @@ public static class DbInitializer
             return; // Database already seeded
         }
         
-        // Add sample ships
+        
         var ships = new Ship[]
         {
             new Ship

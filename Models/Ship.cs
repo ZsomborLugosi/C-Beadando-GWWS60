@@ -6,6 +6,7 @@ public class Ship
 {
     public int Id { get; set; }
 
+    //for new styling
     [Required(ErrorMessage = "Ship name is required")]
     [Display(Name = "Ship Name")]
     [StringLength(100, MinimumLength = 2, ErrorMessage = "Name must be between 2 and 100 characters")]
