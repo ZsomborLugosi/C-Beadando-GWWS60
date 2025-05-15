@@ -14,20 +14,20 @@
         <dl class="row">
             <dt class="col-sm-3">Name</dt>
             <dd class="col-sm-9">@Model.Name</dd>
-            
+
             <dt class="col-sm-3">Cargo</dt>
             <dd class="col-sm-9">@Model.Cargo</dd>
-            
+
             <dt class="col-sm-3">Weight</dt>
             <dd class="col-sm-9">@Model.Weight tons</dd>
-            
+
             <dt class="col-sm-3">Arrival Date</dt>
             <dd class="col-sm-9">@Model.ArrivalDate.ToShortDateString()</dd>
         </dl>
     </div>
 </div>
 
-<form asp-action="DeleteConfirmed" method="post">
+<form asp-action="Delete" method="post">
     <input type="hidden" asp-for="Id" />
     <button type="submit" class="btn btn-danger me-2">Delete</button>
     <a asp-action="Index" class="btn btn-secondary">Cancel</a>
