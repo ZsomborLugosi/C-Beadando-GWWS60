@@ -131,8 +131,8 @@ public class ShipController : Controller
         DrawInfoRow(gfx, normalFont, "Weight:", $"{ship.Weight:N2} tons", 50, yPos);
         yPos += 30;
         DrawInfoRow(gfx, normalFont, "Arrival Date:", $"{ship.ArrivalDate:yyyy-MM-dd}", 50, yPos);
-        yPos += 30;
-        DrawInfoRow(gfx, normalFont, "Document ID:", $"SHIP-{ship.Id:D4}", 50, yPos);
+        
+        
         
         // border
         pen = new XPen(XColors.Black, 1.5);
