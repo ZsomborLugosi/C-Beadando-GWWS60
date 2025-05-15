@@ -1,0 +1,33 @@
+## Ignore build results
+bin/
+obj/
+
+## Rider-specific files
+.idea/
+*.sln.iml
+
+## User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## ASP.NET Core
+appsettings.*.json
+*.db
+*.db-shm
+*.db-wal
+
+## Logs
+*.log
+
+## Dependency directories
+node_modules/
+packages/
+
+## VS Code if used
+.vscode/
+
+## Publish output
+wwwroot/dist/
+
