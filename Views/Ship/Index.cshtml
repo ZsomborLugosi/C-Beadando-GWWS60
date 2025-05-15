@@ -107,13 +107,11 @@ else
 @section Scripts {
     <script>
         $(document).ready(function() {
-            // Add animation to table rows
             $('tbody tr').each(function(index) {
                 $(this).css('animation-delay', (index * 0.05) + 's');
                 $(this).addClass('fade-in');
             });
-
-            // Add hover effect for buttons
+            
             $('.btn').hover(function() {
                 $(this).css('transform', 'translateY(-2px)');
             }, function() {

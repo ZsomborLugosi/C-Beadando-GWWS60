@@ -102,27 +102,27 @@ public class ShipController : Controller
         var page = document.AddPage();
         var gfx = XGraphics.FromPdfPage(page);
         
-        // Define fonts
+        // font
         var titleFont = new XFont("Arial", 18, XFontStyle.Bold);
         var headerFont = new XFont("Arial", 14, XFontStyle.Bold);
         var normalFont = new XFont("Arial", 12);
         
-        // Draw company header/logo section
+        // header/logo section
         gfx.DrawString("GLOBAL DOCKYARD MANAGEMENT", titleFont, XBrushes.DarkBlue,
             new XRect(0, 40, page.Width, 30), XStringFormats.TopCenter);
             
         gfx.DrawString("OFFICIAL SHIP MANIFEST", headerFont, XBrushes.DarkBlue,
             new XRect(0, 70, page.Width, 30), XStringFormats.TopCenter);
             
-        // Draw horizontal line
+        // lines
         var pen = new XPen(XColors.DarkBlue, 1);
         gfx.DrawLine(pen, 50, 100, page.Width - 50, 100);
         
-        // Ship details header
+        // details header
         gfx.DrawString("SHIP DETAILS", headerFont, XBrushes.Black,
             new XRect(50, 120, page.Width - 100, 30), XStringFormats.TopLeft);
         
-        // Ship details content
+        // details content
         var yPos = 160;
         DrawInfoRow(gfx, normalFont, "Ship Name:", ship.Name, 50, yPos);
         yPos += 30;
@@ -134,19 +134,17 @@ public class ShipController : Controller
         yPos += 30;
         DrawInfoRow(gfx, normalFont, "Document ID:", $"SHIP-{ship.Id:D4}", 50, yPos);
         
-        // Draw border around the manifest
+        // border
         pen = new XPen(XColors.Black, 1.5);
         gfx.DrawRectangle(pen, 40, 30, page.Width - 80, page.Height - 80);
         
-        // Footer with generated date
+        // footer
         gfx.DrawString($"Generated on: {DateTime.Now:yyyy-MM-dd HH:mm:ss}", normalFont, XBrushes.Gray,
             new XRect(0, page.Height - 50, page.Width, 30), XStringFormats.TopCenter);
 
         document.Save(stream, false);
         return File(stream.ToArray(), "application/pdf", $"Manifest_{ship.Name}_{DateTime.Now:yyyyMMdd}.pdf");
     }
-    
-    //kiiratas
     
     private void DrawInfoRow(XGraphics gfx, XFont font, string label, string value, double x, double y)
     {

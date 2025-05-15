@@ -7,13 +7,11 @@ public static class DbInitializer
 {
     public static void Initialize(DockyardContext context)
     {
-        // Ensure database is created and migrations are applied
         context.Database.Migrate();
         
-        // Check if database already has data
         if (context.Ships.Any())
         {
-            return; // Database already seeded
+            return; 
         }
         
         

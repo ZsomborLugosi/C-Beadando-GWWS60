@@ -8,24 +8,23 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
-
-        // Add services to the container.
+        
+        //service adding
         builder.Services.AddControllersWithViews();
         
-        // Configure database with proper connection string for SQL Server LocalDB
+        //database connection
         builder.Services.AddDbContext<DockyardContext>(options =>
             options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
         var app = builder.Build();
 
-        // Configure the HTTP request pipeline.
+        // http request pipeline
         if (!app.Environment.IsDevelopment())
         {
             app.UseExceptionHandler("/Home/Error");
-            // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
         }
 
-        // Apply migrations and seed data at startup in development mode
+        // migartion
         if (app.Environment.IsDevelopment())
         {
             using (var scope = app.Services.CreateScope())

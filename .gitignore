@@ -22,11 +22,7 @@ appsettings.*.json
 *.log
 
 ## Dependency directories
-node_modules/
 packages/
-
-## VS Code if used
-.vscode/
 
 ## Publish output
 wwwroot/dist/
