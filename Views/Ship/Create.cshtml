@@ -111,14 +111,7 @@
 
     <script>
         $(document).ready(function() {
-            // Focus the first input field
             $('form input:first').focus();
-
-            // Add animation to form inputs
-            $('input, select').each(function(index) {
-                $(this).css('animation-delay', (index * 0.05) + 's');
-                $(this).addClass('fade-in');
-            });
         });
     </script>
 }
