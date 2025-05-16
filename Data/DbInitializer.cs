@@ -19,29 +19,29 @@ public static class DbInitializer
         {
             new Ship
             {
-                Name = "Northern Star",
-                Cargo = "Electronics",
+                Name = "Titanic",
+                Cargo = "Passengers",
                 Weight = 45000,
                 ArrivalDate = DateTime.Now.AddDays(-2)
             },
             new Ship
             {
-                Name = "Ocean Voyager",
-                Cargo = "Grain",
+                Name = "Nautilus",
+                Cargo = "Divers",
                 Weight = 72000,
                 ArrivalDate = DateTime.Now.AddDays(-5)
             },
             new Ship
             {
-                Name = "Pacific Explorer",
-                Cargo = "Vehicles",
+                Name = "Black Pearl",
+                Cargo = "Treasure",
                 Weight = 38500,
                 ArrivalDate = DateTime.Now.AddDays(-1)
             },
             new Ship
             {
-                Name = "Atlantic Carrier",
-                Cargo = "Container Goods",
+                Name = "Big Guy",
+                Cargo = "Container Cargo",
                 Weight = 65000,
                 ArrivalDate = DateTime.Now
             }
