@@ -1,43 +1,107 @@
 @model Ship
 
-<h2 class="mb-4">Edit Ship</h2>
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h2 class="mb-1">Edit Ship</h2>
+        <p class="text-muted">Update the details for this vessel</p>
+    </div>
+</div>
 
 <div class="row">
-    <div class="col-md-6">
-        <form asp-action="Edit" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body">
+                <form asp-action="Edit" method="post">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                    <input type="hidden" asp-for="Id" />
 
-            <div class="mb-3">
-                <label asp-for="Name" class="form-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="Name" class="form-label"></label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light">
+                                        <i class="bi bi-ship"></i>
+                                    </span>
+                                    <input asp-for="Name" class="form-control" placeholder="Enter ship name" />
+                                </div>
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="Cargo" class="form-label"></label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light">
+                                        <i class="bi bi-box-seam"></i>
+                                    </span>
+                                    <input asp-for="Cargo" class="form-control" placeholder="Enter cargo type" />
+                                </div>
+                                <span asp-validation-for="Cargo" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="mb-3">
-                <label asp-for="Cargo" class="form-label"></label>
-                <input asp-for="Cargo" class="form-control" />
-                <span asp-validation-for="Cargo" class="text-danger"></span>
-            </div>
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="Weight" class="form-label"></label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light">
+                                        <i class="bi bi-speedometer"></i>
+                                    </span>
+                                    <input asp-for="Weight" class="form-control" type="number" step="0.01" placeholder="Enter weight" />
+                                    <span class="input-group-text bg-light">tons</span>
+                                </div>
+                                <span asp-validation-for="Weight" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="ArrivalDate" class="form-label"></label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light">
+                                        <i class="bi bi-calendar-event"></i>
+                                    </span>
+                                    <input asp-for="ArrivalDate" class="form-control" type="date" />
+                                </div>
+                                <span asp-validation-for="ArrivalDate" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="mb-3">
-                <label asp-for="Weight" class="form-label"></label>
-                <input asp-for="Weight" class="form-control" type="number" step="0.01" />
-                <span asp-validation-for="Weight" class="text-danger"></span>
-                <small class="form-text text-muted">Weight in tons</small>
+                    <div class="d-flex justify-content-end gap-2 mt-4">
+                        <a asp-action="Index" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left me-2"></i>Back to List
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-save me-2"></i>Save Changes
+                        </button>
+                    </div>
+                </form>
             </div>
-
-            <div class="mb-3">
-                <label asp-for="ArrivalDate" class="form-label"></label>
-                <input asp-for="ArrivalDate" class="form-control" type="date" />
-                <span asp-validation-for="ArrivalDate" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="col-lg-4 d-none d-lg-block">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Editing Ship</h5>
             </div>
-
-            <div class="mb-3">
-                <button type="submit" class="btn btn-primary">Save</button>
-                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            <div class="card-body">
+                <p class="text-muted">
+                    Ensure all details are accurate before saving the changes to the ship's record.
+                </p>
+                 <div class="mt-4">
+                    <h6><i class="bi bi-info-circle me-2"></i>Field Information</h6>
+                    <ul class="list-unstyled ms-4 mt-2">
+                        <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Ship Name: The official name of the vessel.</li>
+                        <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Cargo Type: The primary type of cargo carried.</li>
+                        <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Weight: Gross weight in tons.</li>
+                        <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Arrival Date: The date the ship arrived or is expected.</li>
+                    </ul>
+                </div>
             </div>
-        </form>
+        </div>
     </div>
 </div>
 

@@ -1,26 +1,48 @@
 :root {
-  --primary-color: #0d6efd;
-  --primary-dark: #0b5ed7;
+  /* Primary Palette */
+  --primary-color: #4A90E2; /* Softer, professional blue */
+  --primary-color-rgb: 74, 144, 226; /* RGB version for rgba() */
+  --primary-dark: #357ABD;  /* Darker shade for hovers/borders */
+
+  /* Status Colors (Bootstrap defaults are generally fine) */
   --success-color: #198754;
   --warning-color: #fd7e14;
   --danger-color: #dc3545;
-  --gray-light: #f8f9fa;
-  --gray-dark: #343a40;
-  --bs-btn-hover-bg: #0b5ed7;
+
+  /* Gray Palette */
+  --gray-light: #F9FAFB;    /* Slightly cleaner light gray for backgrounds like footer */
+  --gray-medium: #E0E6ED;   /* For borders or subtle dividers */
+  --gray-dark: #343a40;     /* For dark text or elements */
+  --text-primary: #2D3748;   /* Dark gray for primary text */
+  --text-secondary: #718096; /* Lighter gray for secondary/muted text */
+
+  /* Component Specific */
+  --card-bg: #FFFFFF;       /* Cards will have a white background */
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Softer shadow example */
+  --navbar-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.07), 0 1px 2px -1px rgba(0, 0, 0, 0.04); /* Subtle modern shadow for navbar */
+
+  /* Button Hovers (Derived from primary) */
+  --bs-btn-hover-bg: var(--primary-dark);
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-border-color: #0a58ca;
+  --bs-btn-hover-border-color: var(--primary-dark);
 }
 
 body {
   font-family: 'Inter', sans-serif;
-  position: relative;
+  color: var(--text-primary); /* Set default text color */
+  background-color: var(--card-bg); /* Assuming a white overall page background */
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
-  padding-bottom: 60px;
+}
+
+.main-content { /* This will be a new class we add to the div wrapping <main> */
+  flex-grow: 1;
 }
 
 .navbar {
   background-color: var(--primary-color);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--navbar-shadow);
 }
 
 .welcome-hero {
@@ -49,9 +71,10 @@ body {
 }
 
 .card {
-  border: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--gray-medium); /* Using the new border color, subtle */
+  box-shadow: var(--card-shadow);
+  border-radius: 8px; /* Existing radius is fine */
   margin-bottom: 1rem;
 }
 
@@ -104,14 +127,92 @@ body {
 
 .footer {
   background-color: var(--gray-light);
-  position: absolute;
-  bottom: 0;
   width: 100%;
-  color: #6c757d;
+  color: var(--text-secondary); /* Use our secondary text color for footer */
+  /* flex-shrink: 0; /* Optional: ensure footer doesn't shrink if content is very sparse, but usually not needed with flex-grow on main */
+}
+
+.btn {
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  border-radius: 0.375rem; /* Bootstrap's default is 0.375rem (6px), which is fine */
 }
 
 .btn:hover {
   color: var(--bs-btn-hover-color);
   background-color: var(--bs-btn-hover-bg);
   border-color: var(--bs-btn-hover-border-color);
+}
+
+/* Custom focus ring for Bootstrap buttons */
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 0.25rem rgba(var(--primary-color-rgb), 0.5); /* Needs --primary-color-rgb */
+}
+
+/* Primary button focus specifically if needed, though above should cover it */
+.btn-primary:focus-visible {
+  box-shadow: 0 0 0 0.25rem rgba(var(--primary-color-rgb), 0.5); /* Needs --primary-color-rgb */
+}
+
+/* Secondary Button Customization */
+.btn-secondary {
+  color: var(--text-primary);
+  background-color: var(--card-bg);
+  border-color: var(--gray-medium);
+}
+
+.btn-secondary:hover {
+  color: var(--text-primary);
+  background-color: var(--gray-light); /* Slightly darker on hover */
+  border-color: var(--gray-medium);
+}
+
+.btn-secondary:focus-visible {
+  color: var(--text-primary);
+  background-color: var(--gray-light);
+  border-color: var(--primary-color); /* Highlight with primary color on focus */
+  box-shadow: 0 0 0 0.25rem rgba(var(--primary-color-rgb), 0.25); /* Needs --primary-color-rgb */
+}
+
+.btn-secondary:active {
+  color: var(--text-primary) !important; /* Important to override BS */
+  background-color: var(--gray-medium) !important; /* Darker active state */
+  border-color: var(--gray-medium) !important;
+}
+
+/* Form Control Customization */
+.form-control {
+  color: var(--text-primary);
+  background-color: var(--card-bg); /* Ensure consistent background */
+  border: 1px solid var(--gray-medium);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  color: var(--text-primary);
+  background-color: var(--card-bg);
+  border-color: var(--primary-color);
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(var(--primary-color-rgb), 0.25);
+}
+
+/* Styling for .form-select if used */
+.form-select {
+  color: var(--text-primary);
+  background-color: var(--card-bg);
+  border: 1px solid var(--gray-medium);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-select:focus {
+  border-color: var(--primary-color);
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(var(--primary-color-rgb), 0.25);
+}
+
+/* Input group styling consistency (ensure icons and text have good contrast) */
+.input-group-text {
+  color: var(--text-secondary); /* Slightly muted text for input group addons */
+  background-color: var(--gray-light); /* Light background for addons */
+  border: 1px solid var(--gray-medium);
 }
