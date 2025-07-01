@@ -18,7 +18,7 @@ public class Ship
 
     [Required(ErrorMessage = "Weight is required")]
     [Display(Name = "Weight (tons)")]
-    [Range(0.01, 1000000, ErrorMessage = "Weight must be between 0.01 and 1,000,000 tons")]
+    [Range(0, 1000000, ErrorMessage = "Weight must be between 0.01 and 1,000,000 tons")]
     public double Weight { get; set; }
 
     [Required(ErrorMessage = "Arrival date is required")]
