@@ -13,9 +13,13 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  position: relative;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
-  padding-bottom: 60px;
+}
+
+.main-content { /* This will be a new class we add to the div wrapping <main> */
+  flex-grow: 1;
 }
 
 .navbar {
@@ -104,10 +108,11 @@ body {
 
 .footer {
   background-color: var(--gray-light);
-  position: absolute;
-  bottom: 0;
+  /* position: absolute; no longer needed */
+  /* bottom: 0; no longer needed */
   width: 100%;
   color: #6c757d;
+  /* flex-shrink: 0; /* Optional: ensure footer doesn't shrink if content is very sparse, but usually not needed with flex-grow on main */
 }
 
 .btn:hover {
